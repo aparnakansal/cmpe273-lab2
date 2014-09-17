@@ -41,11 +41,19 @@ Login.prototype.login = function(_name, _email) {
  * Logout from the server
  */ 
 Login.prototype.logout = function(sessionId) {
-	console.log('logout::' + sessionId);
+delete this.sessionMap[sessionId];
+console.log('logout::' + sessionId);
    /*
 	* TODO: Remove the given sessionId from the sessionMap
 	*/
 };
 
+Login.prototype.name=function(sessionId){
+return this.sessionMap[sessionId].name;
+};
+
+Login.prototype.email=function(sessionId){
+return this.sessionMap[sessionId].email;
+};
 // Export the Login class
 module.exports = new Login();
